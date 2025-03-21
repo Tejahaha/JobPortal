@@ -1,0 +1,56 @@
+.dashboard {
+    width: 100%;
+    height: 100%;
+    background: whitesmoke;
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 200px auto;
+    gap: 1px;
+}
+
+.dashboard .header {
+    background: beige;
+    grid-column: 1 / span 2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .menu {
+    background: linear-gradient(to left, #ffecd2 0%, #fcb69f 100%);
+    color: black;
+    font-weight: bold;
+    padding: 15px;
+    width: 200px;
+    height: 100vh;
+    float: left;
+    overflow-y: auto; /* Added for better scrolling */
+}
+
+.dashboard .outlet {
+    background-color: lavender;
+    color: black;
+    padding: 15px;
+    height: 100vh;
+    overflow-y: auto; /* Added for better scrolling */
+    grid-column: 2; /* Ensure outlet is in the second column */
+}
+
+.header .logo {
+    width: 80px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.header .logout {
+    width: 35px;
+    float: right;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+.header label {
+    font-weight: bold;
+    float: right;
+    margin-top: 17px;
+    margin-right: 10px;
+}

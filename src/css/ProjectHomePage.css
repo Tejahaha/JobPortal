@@ -1,0 +1,337 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+#popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 999;
+    display: none;
+}
+
+.popupWindow {
+    width: 400px;
+    height: auto; 
+    position: relative;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#popupHeader {
+    width: 100%;
+    height: 80px;
+    line-height: 60px;
+    background-color: rgb(111, 130, 223);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#signin {
+    width: calc(100% - 10px);
+    height: calc(100% - 60px);
+    background-color: rgb(248, 248, 249);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px;
+}
+
+.usernameLabel {
+    display: block;
+    padding: 40px 0px 3px 0px;
+    font-size: 14px;
+}
+
+input {
+    width: calc(100% - 5px);
+    height: 30px;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.passwordLabel {
+    display: block;
+    padding: 10px 0px 3px 0px;
+    font-size: 14px;
+}
+
+.forgotPassword {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+
+.forgotPassword label {
+    color: rgb(179, 119, 60);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.signinButton {
+    width: 100%;
+    height: 35px;
+    background: rgb(21, 29, 194);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.signinButton:hover {
+    background: rgba(225, 147, 1, 0.907);
+}
+
+#signup {
+    width: calc(100% - 10px);
+    height: auto; 
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+}
+
+#signup {
+    width: calc(100% - 10px);
+    height: auto;
+    background-color: rgb(248, 248, 249);
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#signup label {
+    display: block;
+    padding: 10px 0 5px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#signup input,
+#signup select {
+    width: calc(100% - 10px);
+    height: 35px;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+#signup select {
+    height: 35px;
+}
+
+#signup button {
+    width: 100%;
+    height: 40px;
+    background: rgb(21, 29, 194);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+#signup button:hover {
+    background: rgba(225, 147, 1, 0.907);
+}
+
+#signup div {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#signup div span {
+    color: rgb(179, 119, 60);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#signup div span:hover {
+    color: rgb(21, 29, 194);
+}
+
+.div1 {
+    width: 100%;
+    height: 40px;
+}
+
+.div2 {
+    width: 100%;
+    font-size: 10pt;
+    color: rgb(11, 11, 11);
+    text-align: center;
+}
+
+.div2 label {
+    display: block;
+    font-size: 12pt;
+    font-weight: bold;
+    color: rgb(222, 28, 28);
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.div2 label:hover {
+    color: rgba(222, 28, 28, 0.653);
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    background-color: beige;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    width: 130px;
+    position: relative;
+    top: 5px;
+    margin-left: 15px;
+}
+
+.header .signIcon {
+    width: 24px;
+    position: relative;
+    float: right;
+    top: 20px;
+    margin-right: 10px;
+}
+
+.header .signinText {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 12px;
+    border: none;
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 18px;
+    transition: background 0.3s ease;
+}
+
+.header .signinText:hover {
+    text-decoration: underline;
+}
+
+.content {
+    width: 100%;
+    height: 800px;
+    background-color: rgb(248, 250, 248);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+}
+
+.content .text1 {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #100200;
+    margin-bottom: 20px;
+}
+
+.content .text2 {
+    font-size: 36pt;
+    font-weight: bold;
+    color: #0d0201;
+    margin-bottom: 20px;
+}
+
+.content .text3 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #070100;
+    margin-bottom: 40px;
+}
+
+.content .searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    width: 80%;
+    max-width: 800px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content .searchText,
+.content .searchLocation {
+    width: 40%;
+    height: 40px;
+    border: none;
+    border-right: 1px solid gray;
+    font-size: 12pt;
+    padding: 0 10px;
+}
+
+.content .searchButton {
+    height: 40px;
+    background: green;
+    font-weight: bold;
+    border-radius: 25px;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.content .searchButton:hover {
+    background: #014c41;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0; 
+    width: 100%;
+    height: 40px;
+    position: relative;
+    background-color: cornsilk;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.socialmediaIcon {
+    width: 24px; 
+    height: 24px;
+    margin: 0 10px; 
+    vertical-align: middle; 
+}
+
+.centered {
+    display: block; 
+    text-align: center;
+    width: 100%; 
+}
+
+.headerText {
+    font-size: 24pt;
+}
