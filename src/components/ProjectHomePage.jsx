@@ -254,7 +254,7 @@ export class Projecthomepage extends Component {
         </div>
 
         <div className='footer'>
-          <label className='copyrightTest centered'>CopyRight @ Muaaz-kluniversity </label>
+          <label className='copyrightTest centered'>CopyRight @ K.Teja-kluniversity </label>
           <img className='socialmediaIcon' src='/images/facebook.png' />
           <img className='socialmediaIcon' src='/images/linkedin.png' />
           <img className='socialmediaIcon' src='/images/twitter.png' />
