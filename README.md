@@ -28,10 +28,15 @@ Before you begin, ensure you have the following installed:
 
 ### Frontend Setup
 
-1. Clone the repository:
+1. Clone the repositories:
    ```bash
-   git clone [repository-url]
+   # Frontend
+   git clone https://github.com/Tejahaha/JobPortal.git
    cd jobportal
+
+   # Backend
+   git clone https://github.com/Tejahaha/jobportal-backend.git
+   cd jobportal-backend
    ```
 
 2. Install dependencies:
@@ -110,6 +115,11 @@ spring.datasource.password=your_password
 3. Commit your changes
 4. Push to the branch
 5. Create a new Pull Request
+
+## Contributors
+
+### Major Contributors
+- [MuaazShaik](https://github.com/MuaazShaik) - Project Lead & Core Developer
 
 ## License
 
