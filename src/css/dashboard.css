@@ -1,56 +1,80 @@
 .dashboard {
     width: 100%;
     height: 100%;
-    background: whitesmoke;
+    background: #f8fafc;
     display: grid;
-    grid-template-rows: 50px auto;
-    grid-template-columns: 200px auto;
-    gap: 1px;
+    grid-template-rows: 64px auto;
+    grid-template-columns: 240px auto;
+    gap: 0;
 }
 
 .dashboard .header {
-    background: beige;
-    grid-column: 1 / span 2;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    grid-column: 1 / 4;
+    height: 0px;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 }
 
 .dashboard .menu {
-    background: linear-gradient(to left, #ffecd2 0%, #fcb69f 100%);
-    color: black;
-    font-weight: bold;
-    padding: 15px;
-    width: 200px;
+    background: #ffffff;
+    color: #1e293b;
+    font-weight: 500;
+    padding: 0;
+    width: 240px;
     height: 100vh;
     float: left;
-    overflow-y: auto; /* Added for better scrolling */
+    overflow-y: auto;
+    border-right: 1px solid #e2e8f0;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard .outlet {
-    background-color: lavender;
-    color: black;
-    padding: 15px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 24px;
     height: 100vh;
-    overflow-y: auto; /* Added for better scrolling */
-    grid-column: 2; /* Ensure outlet is in the second column */
+    overflow-y: auto;
+    grid-column: 2;
 }
 
 .header .logo {
-    width: 80px;
+    width: 120px;
     float: left;
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-top: 12px;
+    margin-left: 24px;
+    transition: opacity 0.2s ease;
+}
+
+.header .logo:hover {
+    opacity: 0.9;
 }
 
 .header .logout {
-    width: 35px;
+    width: 32px;
     float: right;
-    margin-top: 8px;
-    margin-right: 10px;
+    margin-top: 16px;
+    margin-right: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.header .logout:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.header .logout:active {
+    transform: translateY(1px);
 }
 
 .header label {
-    font-weight: bold;
+    font-weight: 600;
     float: right;
-    margin-top: 17px;
-    margin-right: 10px;
+    margin-top: 20px;
+    margin-right: 16px;
+    color: #1e293b;
+    font-size: 14px;
 }

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import '../css/projecthomePage.css';
-import { BASEURL, callApi, setSession } from '../api';
+import {  callApi, setSession } from '../api';
 
 
 export class Projecthomepage extends Component {
@@ -15,6 +15,8 @@ export class Projecthomepage extends Component {
 
   showsSigin() {
     let popup = document.getElementById('popup');
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
     let signin = document.getElementById('signin');
     let signup = document.getElementById('signup');
     let popupHeader = document.getElementById('popupHeader');
@@ -22,7 +24,6 @@ export class Projecthomepage extends Component {
     popup.style.display = 'block';
     signin.style.display = 'block';
     signup.style.display = 'none';
-
     username.value = "";
     password.value = "";
   }
@@ -121,6 +122,7 @@ export class Projecthomepage extends Component {
   }
 
   forgotPassword() {
+    let username = document.getElementById('username');
     username.style.border = "";
     if (username.value === "") {
       username.style.border = "1px solid red";
@@ -142,6 +144,9 @@ export class Projecthomepage extends Component {
   }
 
   signin() {
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let responseDiv = document.getElementById('responseDiv');
     username.style.border = "";
     password.style.border = "";
     responseDiv.innerHTML = "";
@@ -160,17 +165,31 @@ export class Projecthomepage extends Component {
       password: password.value
     });
 
-    callApi("POST", "http://localhost:8080/users/SignIn", data, this.signinResponse);
+    callApi("POST", "http://localhost:8080/users/Login", data, this.signinResponse);
   }
 
   signinResponse(res) {
-    let data = res.split('::');
-    let responseDiv = document.getElementById('responseDiv');
-    if (data[0] === "200") {
-      setSession("csrid", data[1], 1);
-      window.location.replace("/dashboard");
-    } else {
-      responseDiv.innerHTML = `<label style='color:red'>${data[1]}</label>`;
+    try {
+      let responseDiv = document.getElementById('responseDiv');
+      if (!res || res.trim() === '') {
+        responseDiv.innerHTML = `<label style='color:red'>Server error. Please try again later.</label>`;
+        return;
+      }
+
+      let data = res.split('::')
+      if (data[0] === "200" && data[1] && data[1].trim() !== '') {
+        const token = data[1];
+        localStorage.setItem('jwtToken', token);
+        setSession("csrid", token, 1);
+        window.location.replace("/dashboard");
+      } else {
+        const errorMessage = data[1] || 'Invalid credentials. Please check your email and password.';
+        responseDiv.innerHTML = `<label style='color:red'>${errorMessage}</label>`;
+      }
+    } catch (error) {
+      let responseDiv = document.getElementById('responseDiv');
+      responseDiv.innerHTML = `<label style='color:red'>An error occurred. Please try again later.</label>`;
+      console.error('Login error:', error);
     }
   }
 
@@ -190,7 +209,7 @@ export class Projecthomepage extends Component {
 
               <div className='div1' id='responseDiv'> </div>
               <div className='div2'>
-                DON'T HAVE AN ACCOUNT??
+                DONT HAVE AN ACCOUNT??
                 <label onClick={this.showSignup}>SIGN UP</label>
               </div>
             </div>
@@ -224,7 +243,7 @@ export class Projecthomepage extends Component {
         </div>
 
         <div className='content'>
-          <div className='text1'>INDIA's #1 JOB PORTAL</div>
+          <div className='text1'>INDIAs #1 JOB PORTAL</div>
           <div className='text2'>Find your dream job</div>
           <div className='text3'>Discover career opportunities</div>
           <div className='searchBar'>

@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import '../css/dashboard.css';
 import { BASEURL, callApi, getSession,setSession } from '../api';
+import MenuBar from './MenuBar';
 
 
 export default class Dashboard extends Component {
   constructor(props)
   {
     super(props);
-    this.state = {fullname : ''};
+    this.state = {fullname:''};
     this.showFullname = this.showFullname.bind(this);
   }
   componentDidMount()
   {
     let csr = getSession("csrid");
-    //alert(csr);
+    //  alert(csr);
     if(csr === "")
       this.logout();
     let data = JSON.stringify({csrid : csr});
@@ -36,11 +37,10 @@ const{fullname}=this.state;
     return (
       <div className='dashboard'>
         <div className='header'>
-          <img className='logo' src='./images/logo1.png' alt='no' />
           <img className='logout'onClick={()=>this.logout()} src='./images/logout.png' alt='no' />
           <label>{fullname}</label>
         </div>
-        <div className='menu'>MENU</div>
+        <div className='menu'><MenuBar/></div>
         <div className='outlet'>OUTLET</div>
       </div>
     );
