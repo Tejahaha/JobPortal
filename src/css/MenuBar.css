@@ -1,192 +1,134 @@
-/* MenuBar Styling */
-.sidebar {
-  height: 100vh;
+.menubar {
+  background-color: #ffffff;
   width: 240px;
-  background-color: #f8fafc;
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  height: 100vh;
   border-right: 1px solid #e2e8f0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
   transition: width 0.3s ease;
-  z-index: 10;
+  overflow-x: hidden;
 }
 
-.sidebar.collapsed {
-  width: 80px;
-}
-
-/* Header styles */
-.sidebar-header {
-  padding: 20px;
-  border-bottom: 1px solid #e2e8f0;
+.menuheader {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.logo {
-  color: #1e293b;
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: 1px;
+.menuheader img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.menuheader img:hover {
+  opacity: 1;
+}
+
+.menulist {
+  padding: 16px 0;
+}
+
+.menulist ul {
+  list-style-type: none;
+  padding: 0;
   margin: 0;
 }
 
-.logo-small {
-  color: #1e293b;
-  font-weight: 800;
-  font-size: 20px;
-  margin: 0;
-}
-
-.logo-highlight {
-  color: #3b82f6;
-}
-
-.collapse-button {
-  background: none;
-  border: none;
-  color: #64748b;
-  font-size: 20px;
-  cursor: pointer;
+.menulist li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 4px;
-  border-radius: 4px;
+  justify-content: space-between;
+  padding: 12px 24px;
+  cursor: pointer;
+  color: #475569;
+  font-size: 14px;
   transition: all 0.2s ease;
 }
 
-.collapse-button:hover {
+.menulist li:hover {
+  background-color: #f8fafc;
   color: #1e293b;
-  background-color: #e2e8f0;
 }
 
-/* Menu items styles */
-.menu-items {
-  flex-grow: 1;
-  list-style: none;
-  padding: 20px 0;
-  margin: 0;
+.menulist li img {
+  width: 20px;
+  height: 20px;
+  margin-left: 12px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
 }
 
-.menu-item {
-  padding: 4px 15px;
+.menulist li:hover img {
+  opacity: 0.8;
 }
 
-.menu-link {
-  display: flex;
-  align-items: center;
-  color: #64748b;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+/* Active/Selected State */
+.menulist li.active {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  font-weight: 600;
+  border-right: 3px solid #3b82f6;
 }
 
-.sidebar.collapsed .menu-link {
-  justify-content: center;
+.menulist li.active img {
+  opacity: 1;
 }
 
-.menu-link:hover {
-  color: #3b82f6;
-  background-color: #e2e8f0;
-}
-
-.menu-link.active {
-  background-color: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-}
-
-.menu-icon {
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-}
-
-.sidebar:not(.collapsed) .menu-icon {
-  margin-right: 15px;
-}
-
-.menu-label {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-/* Logout button styles */
-.logout-container {
-  border-top: 1px solid #e2e8f0;
-  padding: 15px;
-}
-
-.logout-button {
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  width: 100%;
-  color: #ef4444;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.sidebar.collapsed .logout-button {
-  justify-content: center;
-}
-
-.logout-button:hover {
-  color: #dc2626;
-  background-color: #fecaca;
-}
-
-.logout-icon {
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-}
-
-.sidebar:not(.collapsed) .logout-icon {
-  margin-right: 15px;
-}
-
-.logout-text {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.username-container {
-  position: absolute;
-  bottom: 75px; /* Adjust as needed */
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-  background-color: rgba(59, 130, 246, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.username {
-  font-size: 16px;
-  font-weight: bold;
-  color: #000000;
-  margin: 0;
-}
-
-
-/* Media query for mobile responsiveness */
-@media screen and (max-width: 768px) {
-  .sidebar {
-    width: 270px;
-    transform: translateX(-100%);
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .menubar {
+    width: 80px;
+    overflow: hidden;
   }
-  
-  .sidebar.collapsed {
-    width: 270px;
-    transform: translateX(0);
+
+  .menuheader span {
+    display: none;
   }
+
+  .menulist li span {
+    display: none;
+  }
+
+  .menulist li img {
+    margin: 0 auto;
+  }
+}
+
+/* Collapsed State */
+.menubar.collapsed {
+  width: 80px;
+}
+
+.menubar.collapsed .menuheader span,
+.menubar.collapsed .menulist li span {
+  display: none;
+}
+
+/* Scrollbar Styling */
+.menulist {
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.menulist::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menulist::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.menulist::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.menulist::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

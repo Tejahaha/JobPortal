@@ -1,76 +1,78 @@
 .dashboard {
-    width: 100%;
-    height: 100vh;
-    background: #f8fafc;
-    display: grid;
-    grid-template-rows: 64px auto;
-    grid-template-columns: 240px auto;
-    gap: 0;
-    transition: grid-template-columns 0.3s ease;
+  width: 100%;
+  height: 100vh;
+  background: #f8fafc;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content";
+  grid-template-rows: 64px 1fr;
+  grid-template-columns: 240px 1fr;
+  transition: grid-template-columns 0.3s ease;
 }
 
-
 .dashboard.collapsed {
-    grid-template-columns: 80px auto;
+  grid-template-columns: 80px 1fr;
 }
 
 .dashboard .header {
-    background: #ffffff;
-    grid-column: 1 / 4;
-    height: 64px;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-.dashboard .outlet {
-    background-color: #f8fafc;
-    color: #1e293b;
-    padding: 24px;
-    height: 100vh;
-    overflow-y: auto;
-    transition: margin-left 0.3s ease;
+  grid-area: header;
+  background: #ffffff;
+  height: 64px;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Adjust outlet when sidebar is collapsed */
-.dashboard.collapsed .outlet {
-    margin-left: -160px;
+.dashboard .menu {
+  grid-area: menu;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
 }
+
+.dashboard .outlet {
+  grid-area: content;
+  background-color: #f8fafc;
+  color: #1e293b;
+  padding: 24px;
+  overflow-y: auto;
+}
+
 .header .logo {
-    width: 120px;
-    float: left;
-    margin-top: 12px;
-    margin-left: 24px;
-    transition: opacity 0.2s ease;
+  width: 120px;
+  transition: opacity 0.2s ease;
 }
 
 .header .logo:hover {
-    opacity: 0.9;
+  opacity: 0.9;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .header .logout {
-    width: 32px;
-    float: right;
-    margin-top: 16px;
-    margin-right: 24px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: all 0.2s ease;
+  width: 32px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.2s ease;
 }
 
 .header .logout:hover {
-    opacity: 1;
-    transform: translateY(-1px);
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 .header .logout:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
 .header label {
-    font-weight: 600;
-    float: right;
-    margin-top: 20px;
-    margin-right: 16px;
-    color: #1e293b;
-    font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 14px;
 }

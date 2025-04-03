@@ -238,7 +238,6 @@ export class Projecthomepage extends Component {
 
         <div className='header'>
           <img className='logo' src='/images/logo1.png' alt='no' />
-          <img className='signIcon' src='/images/user.png' alt='sign' />
           <label className='signinText' onClick={this.showsSigin}>Sign In</label>
         </div>
 

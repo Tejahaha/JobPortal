@@ -2,6 +2,9 @@ import { Component } from 'react';
 import '../css/dashboard.css';
 import { BASEURL, callApi, getSession, setSession } from '../api';
 import MenuBar from './MenuBar';
+import JobSearching from './JobSearching.jsx';
+import JobPosting from './JobPosting.jsx';
+import Profile from './Profile.jsx';
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -9,6 +12,8 @@ export default class Dashboard extends Component {
     this.state = { fullname: '', isCollapsed: false };
     this.showFullname = this.showFullname.bind(this);
     this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.loadComponent = this.loadComponent.bind(this);
+
   }
 
   componentDidMount() {
@@ -31,20 +36,29 @@ export default class Dashboard extends Component {
     this.setState(prevState => ({ isCollapsed: !prevState.isCollapsed }));
   }
 
-  render() {
-    const { fullname, isCollapsed } = this.state;
+  loadComponent(mid){
+    let components = {
+      "1":<JobPosting/>,
+      "2":<JobSearching/>,
+      "3":<Profile/>
+    };
+    this.setState({activeComponent:components[mid]});
+}
 
+  render() {
+    const { fullname , activeComponent} = this.state;
     return (
-      <div className={`dashboard ${isCollapsed ? 'collapsed' : ''}`}>
-        <div className='header'>
-          <img className='logout' onClick={() => this.logout()} src='./images/logout.png' alt='logout' />
+      <div className='dashboard'>
+      <div className='header'>
+        <img className='logo' src='./images/logo1.png' alt='no' />
+        <div className='header-right'>
           <label>{fullname}</label>
+          <img className='logout' onClick={()=>this.logout()} src='./images/logout.png' alt='no' />
         </div>
-        <div className='menu'>
-          <MenuBar isCollapsed={isCollapsed} toggleSidebar={this.toggleSidebar}  username={fullname}/>
-        </div>
-        <div className='outlet'>OUTLET</div>
       </div>
-    );
+      <div className='menu'><MenuBar onMenuClick={this.loadComponent}/></div>
+      <div className='outlet'>{activeComponent}</div>
+    </div>
+  );
   }
 }
