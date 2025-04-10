@@ -6,6 +6,7 @@ import JobSearching from './JobSearching.jsx';
 import JobPosting from './JobPosting.jsx';
 import Profile from './Profile.jsx';
 
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -48,17 +49,17 @@ export default class Dashboard extends Component {
   render() {
     const { fullname , activeComponent} = this.state;
     return (
-      <div className='dashboard'>
-      <div className='header'>
-        <img className='logo' src='./images/logo1.png' alt='no' />
-        <div className='header-right'>
-          <label>{fullname}</label>
-          <img className='logout' onClick={()=>this.logout()} src='./images/logout.png' alt='no' />
+        <div className='dashboard'>
+        <div className='header'>
+          <img className='logo' src='./images/logo1.png' alt='no' />
+          <div className='header-right'>
+            <label>{fullname}</label>
+            <img className='logout' onClick={()=>this.logout()} src='./images/logout.png' alt='no' />
+          </div>
         </div>
-      </div>
       <div className='menu'><MenuBar onMenuClick={this.loadComponent}/></div>
       <div className='outlet'>{activeComponent}</div>
-    </div>
+      </div>
   );
   }
 }
