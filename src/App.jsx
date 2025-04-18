@@ -7,6 +7,7 @@ import JobSearching from "./components/JobSearching";
 import JobPosting from "./components/JobPosting";
 import Profile from "./components/Profile";
 import MenuBar from "./components/MenuBar";
+import TailwindTest from "./components/TailwindTest";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/jobsearching" element={<JobSearching />} />
               <Route path="/jobposting" element={<JobPosting />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/TailwindTest" element={<TailwindTest />} />
             </Routes>
           </main>
         </div>
